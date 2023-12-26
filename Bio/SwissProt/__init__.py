@@ -813,6 +813,8 @@ def _read_ft(record, line):
             return
         # this line is a continuation of the description of the previous feature
         keys = list(feature.qualifiers.keys())
+        if len(keys) == 0:
+            return
         key = keys[-1]
         description = value.rstrip('"')
         old_description = feature.qualifiers[key]
